@@ -433,39 +433,40 @@
 
                 <div class="row justify-content-center tec">
                     <div class="col-12 col-md-6">
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Nome</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1"
-                                placeholder="Entre com o seu nome completo">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Email</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1"
-                                placeholder="nome@email.com">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Telefone</label>
-                            <input type="number" class="form-control" id="exampleFormControlInput1"
-                                placeholder="Digite o telefone no formato (DD) 99999-9999 ou (DD) 4444-4444">
-                        </div>
+                        <form action="cadastroContato.php" method="POST">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Nome</label>
+                                <input type="text" name="nome" class="form-control" id="nome"
+                                    placeholder="Entre com o seu nome completo" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Email</label>
+                                <input type="text" name="email" class="form-control" id="email"
+                                    placeholder="nome@email.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Telefone</label>
+                                <input type="number" name="telefone" class="form-control" id="telefone"
+                                    placeholder="(34) 99999-9999" required>
+                            </div>
 
-                        <label for="exampleFormControlInput1" class="form-label">Dúvidas</label>
-                        <select name="" id="" class="form-select">
-                            <option> Dúvida sobre produto</option>
-                            <option> Entrega</option>
-                            <option> Pagamento</option>
-                        </select>
+                            <label for="exampleFormControlInput1" class="form-label">Dúvidas</label>
+                            <select name="assunto" id="assunto" class="form-select">
+                                <option value="Produto">Dúvida sobre produto</option>
+                                <option value="Entrega">Entrega</option>
+                                <option value="Pagamento">Pagamento</option>
+                            </select>
 
-                        <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Mensagem</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Mensagem</label>
+                                <textarea class="form-control" id="mensagem" name="mensagem" rows="3" required></textarea>
+                            </div>
 
-                        <button class="btn btn-success w-100 ">
-                            <i class="bi bi-send me-2"></i>
-                            Enviar mensagem
-                        </button>
-
+                            <button class="btn btn-success w-100 ">
+                                <i class="bi bi-send me-2"></i>
+                                Enviar mensagem
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -519,4 +520,5 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 </body>
+
 </html>
