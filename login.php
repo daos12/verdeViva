@@ -20,13 +20,13 @@ $erro = isset($_GET["erro"]);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
 <body>
     <section class="container ">
-        <div class="row">
-            <div class="col-6" justify-content: center;>
+        <div class="row justify-content-center">
+            <div class="col-6 ">
                 <form action="autenticar.php" method="POST">
                     <div class="mb-3">
                         <label class="form-label">Email</label>
@@ -38,13 +38,19 @@ $erro = isset($_GET["erro"]);
                         <input type="password" class="form-control" name="senha" required>
                     </div>
 
-                    <button type="submit" class="btn-solid theme-primary">Entrar</button>
                 </form>
+                <div class="justify-content-center text-center">
+                    <button type="submit" class="btn btn-success justify-">Entrar</button>
+
+                </div>
+
+                <!-- Voltar ao site -->
+                <a href="index.html" class=" mt-3 btn btn-primary justify-content-center ">
+                    Voltar ao site
+                </a>
+
             </div>
-
         </div>
-
-
     </section>
 
 
@@ -52,7 +58,10 @@ $erro = isset($_GET["erro"]);
 
 
 
-    <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 
 </html>
+
+
+
