@@ -1,308 +1,241 @@
-# VerdeViva - Plantas & Jardinagem
+# VerdeViva — Plantas & Jardinagem
 
-Projeto Web educacional desenvolvido em conjunto com os alunos durante as aulas, com o objetivo de praticar a construção de páginas modernas e responsivas utilizando HTML5 e Bootstrap 5.
+**Projeto educacional de desenvolvimento web**, construído passo a passo em sala de aula para simular o site de uma loja de plantas e jardinagem. A aplicação começou com **HTML5 e Bootstrap 5** e evoluiu para integrar **PHP, MySQL, formulário de contato, login administrativo e painel de mensagens**.
 
-O projeto simula o site de uma loja fictícia chamada VerdeViva, especializada em plantas, vasos, ferramentas e acessórios para jardinagem.
+> **Finalidade:** aprendizagem e demonstração de tecnologias web. A VerdeViva é uma empresa fictícia; o projeto não implementa vendas, pagamentos ou gestão de pedidos reais.
 
-## Objetivo do projeto
+## Sobre o projeto
 
-O principal objetivo deste projeto foi aprender, de forma prática, como utilizar os recursos e componentes disponíveis no Bootstrap para construir uma página Web completa.
-
-Durante o desenvolvimento, os componentes foram pesquisados na documentação oficial do Bootstrap, adicionados ao projeto e posteriormente personalizados de acordo com a proposta da loja.
-
-A atividade também permitiu compreender como diferentes componentes podem ser combinados para criar uma interface organizada, responsiva e funcional.
+A proposta é aplicar, em um único projeto, os conceitos de interface responsiva, componentes Bootstrap, formulários HTML, processamento de dados no servidor, consultas SQL, autenticação e controle de sessões. O desenvolvimento foi realizado de forma progressiva, permitindo observar a integração entre front-end, back-end e banco de dados.
 
 ## Tecnologias utilizadas
 
-- HTML5
-- Bootstrap 5
-- Bootstrap Icons
-- JavaScript do Bootstrap
-- Git
-- GitHub
+| Tecnologia | Aplicação no projeto |
+| --- | --- |
+| **HTML5** | Estrutura e formulários das páginas |
+| **Bootstrap 5.3.8** | Layout responsivo e componentes visuais |
+| **Bootstrap Icons** | Ícones da interface |
+| **JavaScript (Bootstrap Bundle)** | Interatividade dos componentes Bootstrap |
+| **PHP** | Recebimento de formulários, autenticação e sessões |
+| **MySQL / MySQLi** | Armazenamento e consulta de usuários e contatos |
+| **Apache / XAMPP** | Ambiente local para executar o PHP |
+| **Git e GitHub** | Versionamento e compartilhamento do código |
 
-## Recursos desenvolvidos
+Bootstrap e Bootstrap Icons são carregados por CDN. Para utilizar as funcionalidades em PHP, é necessário executar o projeto por um servidor com PHP; **abrir `index.html` diretamente ou usar apenas o Live Server não executa o back-end**.
 
-O projeto utiliza diferentes recursos do Bootstrap, incluindo:
+## Funcionalidades
 
-- Navbar responsiva
-- Carousel
-- Alerts
-- Sistema de Grid
-- Cards
-- Badges
-- Buttons
-- Modal
-- Accordion
-- Formulários
-- Bootstrap Icons
-- Classes utilitárias
-- Flexbox
-- Espaçamentos
-- Responsividade
-- Links internos
-- Integração com WhatsApp
-- Integração com Instagram
+### Página pública
 
-## Estrutura da página
+- Barra de navegação responsiva com links internos e acesso ao login.
+- Carrossel promocional, alertas e apresentação de categorias.
+- Cards de produtos com imagens, descrições, preços e elementos visuais.
+- Modal de detalhes, FAQ com accordion e seções informativas.
+- Formulário de contato com nome, e-mail, telefone, assunto e mensagem.
+- Links demonstrativos para WhatsApp e Instagram.
 
-### Navbar
+### Contato com banco de dados
 
-Foi criada uma barra de navegação responsiva contendo o nome VerdeViva e links para diferentes áreas da página:
+O formulário da página inicial envia os dados via **POST** para `cadastroContato.php`. O PHP utiliza uma **consulta preparada** para inserir as informações na tabela `contato` e apresenta uma mensagem de confirmação antes de retornar à página inicial.
 
-- Início
-- Categorias
-- Produtos
-- Dúvidas
-- Contato
+### Área administrativa
 
-Em dispositivos menores, o menu é adaptado automaticamente utilizando o recurso de Navbar responsiva do Bootstrap.
+- Página de login em `login.php`.
+- Validação de credenciais em `autenticar.php` usando consulta preparada e `password_verify()`.
+- Sessão PHP para manter a autenticação e restringir o acesso ao painel.
+- Painel em `painel.php` que consulta e apresenta as mensagens recebidas, ordenadas das mais recentes para as mais antigas.
+- Saída da sessão por `logout.php`.
+- Página de configuração inicial `criar_admin.php` para cadastrar um administrador localmente.
 
-### Carousel
+**Observação:** o painel é de **visualização de mensagens**. O repositório não contém um CRUD completo de contatos nem gerenciamento de pedidos.
 
-A página possui um Carousel utilizado como banner principal.
-
-Foram criados diferentes slides apresentando chamadas como:
-
-- Deixe sua casa mais verde
-- Semana dos Vasos
-- Seu jardim começa aqui
-
-Cada slide possui textos e botões que direcionam o usuário para outras áreas da página.
-
-### Alert
-
-Foi utilizado o componente Alert para apresentar informações importantes ao visitante, como promoções e condições de frete.
-
-### Categorias
-
-O sistema de Grid do Bootstrap foi utilizado para organizar as principais categorias da loja:
-
-- Plantas
-- Vasos
-- Ferramentas
-- Acessórios
-
-A utilização das classes responsivas permite modificar automaticamente a distribuição dos elementos de acordo com o tamanho da tela.
-
-## Produtos
-
-Os produtos foram organizados utilizando Cards do Bootstrap.
-
-Cada produto pode apresentar:
-
-- Imagem
-- Nome
-- Descrição
-- Preço
-- Preço promocional
-- Badge
-- Botões de ação
-
-Entre os produtos utilizados no exemplo estão:
-
-- Costela-de-Adão
-- Espada-de-São-Jorge
-- Kit Jardinagem
-
-## Badges
-
-Os Badges foram utilizados para destacar determinadas características dos produtos, como:
-
-- Oferta
-- Mais vendido
-- Novidade
-
-Isso demonstra como pequenas informações podem receber destaque visual utilizando classes prontas do Bootstrap.
-
-## Modal
-
-O componente Modal foi utilizado para apresentar informações adicionais sobre um produto sem a necessidade de abrir uma nova página.
-
-No exemplo da Costela-de-Adão, o usuário pode consultar informações como:
-
-- Ambiente recomendado
-- Iluminação
-- Frequência de rega
-- Tamanho aproximado
-- Preço
-
-O Modal também possui um botão para iniciar o processo de compra.
-
-## WhatsApp
-
-Os produtos possuem botões de contato pelo WhatsApp.
-
-Ao clicar no botão, o usuário é direcionado para uma conversa contendo uma mensagem previamente configurada de acordo com o produto escolhido.
-
-Exemplo de funcionamento:
-
-Comprar pelo WhatsApp → abrir conversa → mensagem sobre o produto.
-
-Esse recurso demonstra uma aplicação prática de links externos em um projeto comercial.
-
-## Instagram
-
-Também foi adicionada uma opção para acessar o perfil da empresa no Instagram.
-
-O objetivo foi demonstrar como integrar redes sociais a uma página Web utilizando links, botões e Bootstrap Icons.
-
-## Seção de benefícios
-
-Foi criada uma área para apresentar alguns diferenciais da empresa:
-
-- Entrega
-- Compra segura
-- Suporte
-
-Essa seção utiliza Grid, classes utilitárias e Bootstrap Icons.
-
-## Perguntas Frequentes
-
-O componente Accordion foi utilizado para criar uma seção de perguntas frequentes.
-
-Entre as perguntas apresentadas estão:
-
-- Vocês realizam entrega?
-- Como escolher uma planta?
-- Quais são as formas de pagamento?
-- Posso retirar meu pedido na loja?
-
-O Accordion permite mostrar e ocultar as respostas de forma interativa.
-
-## Formulário de contato
-
-Foi desenvolvido um formulário contendo:
-
-- Nome
-- E-mail
-- Telefone
-- Assunto
-- Mensagem
-- Botão de envio
-
-Nesta versão do projeto, o formulário possui finalidade visual e educacional.
-
-O envio e armazenamento das informações poderá ser implementado futuramente utilizando tecnologias de Back-End e banco de dados.
-
-## Responsividade
-
-Um dos principais conteúdos praticados durante o desenvolvimento foi a responsividade.
-
-Foram utilizadas classes como:
-
-`container`
-
-`row`
-
-`col-12`
-
-`col-md-4`
-
-`col-md-6`
-
-`col-md-7`
-
-`col-6`
-
-Além dessas classes, foram utilizados recursos de Flexbox e classes utilitárias do Bootstrap.
-
-Com isso, os elementos da página conseguem se reorganizar conforme o tamanho da tela.
-
-## Bootstrap Icons
-
-O projeto utiliza Bootstrap Icons para complementar visualmente diferentes elementos da interface.
-
-Foram utilizados ícones relacionados a:
-
-- Plantas
-- Ferramentas
-- Entrega
-- Segurança
-- Atendimento
-- WhatsApp
-- Instagram
-- Visualização
-- Envio de mensagens
-
-## Estrutura básica do projeto
+## Estrutura do projeto
 
 ```text
-verdeviva-bootstrap/
-│
-├── index.html
-└── README.md
+verdeViva-main/
+├── img/
+│   ├── costaAdao.jpg
+│   ├── espada.jpg
+│   └── kitJardinagem.jpg
+├── index.html            # Página pública da loja
+├── cadastroContato.php   # Recebe e salva mensagens
+├── conexao.php           # Conexão com o MySQL
+├── login.php             # Formulário de acesso administrativo
+├── autenticar.php        # Confere usuário e senha
+├── painel.php            # Exibe as mensagens cadastradas
+├── logout.php            # Encerra a sessão
+├── criar_admin.php       # Cadastro inicial: REMOVER após o uso
+├── gerar_hash.php        # Utilitário temporário: REMOVER
+└── README.md             # Documentação do projeto
+```
 
-O Bootstrap e o Bootstrap Icons são carregados por CDN, não sendo necessário instalar essas bibliotecas localmente.
-Como executar o projeto
-1. Faça o download ou clone este repositório.
-2. Abra a pasta do projeto.
-3. Localize o arquivo index.html.
-4. Abra o arquivo utilizando um navegador.
-5. Também é possível executar o projeto utilizando a extensão Live Server do Visual Studio Code.
-Clonando o repositório
-git clone URL-DO-REPOSITORIO
+## Como executar localmente
 
-Depois:
-cd verdeviva-bootstrap
+### 1. Pré-requisitos
 
-Abra o projeto no Visual Studio Code:
-code .
+- **XAMPP** com Apache, PHP e MySQL/MariaDB funcionando.
+- Navegador atualizado.
+- Editor de código, como Visual Studio Code (opcional).
 
-Conceitos praticados
-Durante o desenvolvimento deste projeto foram praticados conceitos importantes para o desenvolvimento Web, como:
-- Estruturação de páginas com HTML
-- Utilização de frameworks CSS
-- Bootstrap 5
-- Sistema de Grid
-- Responsividade
-- Componentes reutilizáveis
-- Classes utilitárias
-- Flexbox
-- Navegação por âncoras
-- Formulários
-- Cards
-- Modais
-- Carrosséis
-- Accordions
-- Ícones
-- Links externos
-- Integração com redes sociais
-- Organização de código
-- Utilização da documentação oficial
-- Versionamento com Git
-- Publicação de projetos no GitHub
-Metodologia utilizada em aula
-O projeto foi construído passo a passo em conjunto com os alunos.
-Durante o desenvolvimento, cada componente foi apresentado individualmente, pesquisado na documentação do Bootstrap e posteriormente incorporado ao projeto.
-A proposta foi mostrar que não é necessário memorizar todas as classes e componentes do framework. O mais importante é compreender sua estrutura, saber consultar a documentação e conseguir adaptar os exemplos às necessidades de cada projeto.
-Os alunos puderam acompanhar a evolução da página, testar alterações no código e observar em tempo real o comportamento dos componentes e da responsividade.
-Possíveis melhorias futuras
-O projeto poderá evoluir com a implementação de novos recursos, como:
-- JavaScript personalizado
-- Validação do formulário
-- Carrinho de compras
-- Pesquisa de produtos
-- Filtros por categoria
-- Cadastro de clientes
-- Banco de dados
-- Sistema de login
-- Área administrativa
-- Back-End
-- Integração com APIs
-Documentação utilizada
-Durante as aulas, os componentes podem ser consultados diretamente na documentação oficial do Bootstrap:
-Bootstrap:
-https://getbootstrap.com/
-Bootstrap Icons:
-https://icons.getbootstrap.com/
-Finalidade educacional
-Este projeto foi desenvolvido exclusivamente para fins educacionais, como material de apoio às aulas de Desenvolvimento Web.
-A empresa VerdeViva e os produtos apresentados são utilizados apenas como exemplos para contextualizar a aplicação dos recursos estudados.
-O projeto tem como objetivo permitir que os alunos aprendam por meio da prática, experimentação, modificação do código e consulta à documentação oficial.
-Autor e desenvolvimento
-Projeto desenvolvido em sala de aula em conjunto com os alunos.
-Professor Diego Antonio
-Material destinado ao estudo e à prática de Desenvolvimento Web.
+### 2. Copiar os arquivos
 
-O README está alinhado ao código: inclusive deixa claro que o formulário ainda é apenas visual e que uma implementaçã
+Baixe ou clone o repositório e coloque a pasta do projeto dentro de `htdocs`. Exemplo no Windows:
+
+```text
+C:\xampp\htdocs\vivaVerde\
+```
+
+Se o nome da pasta for diferente, ajuste o endereço utilizado no navegador.
+
+### 3. Iniciar os serviços
+
+Abra o painel do XAMPP e inicie **Apache** e **MySQL**. Acesse o phpMyAdmin em `http://localhost/phpmyadmin/`.
+
+### 4. Criar o banco e as tabelas
+
+O ZIP analisado **não contém um arquivo `.sql` de instalação**. O script a seguir representa as colunas consultadas e gravadas pelos arquivos PHP presentes no repositório:
+
+```sql
+CREATE DATABASE IF NOT EXISTS verdeViva
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
+USE verdeViva;
+
+CREATE TABLE IF NOT EXISTS contato (
+    idContato INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL,
+    telefone VARCHAR(20),
+    assunto VARCHAR(100),
+    mensagem TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS usuario (
+    idUsuario INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    senha_hash VARCHAR(255) NOT NULL
+);
+```
+
+> Se as tabelas já existirem, **verifique sua estrutura antes de executar alterações**. O código atual utiliza `usuario` (singular), `idUsuario` e `senha_hash`; para mensagens, utiliza `contato` e `idContato`.
+
+### 5. Configurar a conexão
+
+Confira `conexao.php`. **Na versão enviada**, os parâmetros estão configurados como:
+
+```php
+$conexao = mysqli_connect(
+    "localhost", // Servidor
+    "root",      // Usuário do MySQL
+    "root",      // Senha do MySQL nesta instalação
+    "verdeViva", // Banco de dados
+    3306         // Porta
+);
+```
+
+Esses valores **não são universais**: ajuste usuário, senha e porta de acordo com sua instalação. Evite publicar credenciais reais no GitHub. Para uma versão destinada à produção, utilize configurações externas ao repositório e um usuário MySQL com permissões limitadas.
+
+### 6. Cadastrar o administrador inicial
+
+Em ambiente **local de testes**, acesse:
+
+```text
+http://localhost/vivaVerde/criar_admin.php
+```
+
+Informe nome, e-mail e uma senha de pelo menos **12 caracteres**. O arquivo usa `password_hash()` para armazenar a senha de forma segura. **Exclua `criar_admin.php` e `gerar_hash.php` depois da configuração.** Nunca disponibilize essas páginas em um servidor público.
+
+### 7. Abrir o site e testar
+
+Página pública:
+
+```text
+http://localhost/vivaVerde/index.html
+```
+
+Login administrativo:
+
+```text
+http://localhost/vivaVerde/login.php
+```
+
+Fluxo sugerido de teste:
+
+1. Envie uma mensagem pelo formulário de contato.
+2. Verifique o registro na tabela `contato` pelo phpMyAdmin.
+3. Entre em `login.php` com o administrador cadastrado.
+4. Confira se a mensagem aparece em `painel.php`.
+5. Clique em **Sair** e tente abrir `painel.php` novamente para verificar o redirecionamento ao login.
+
+## Como funciona a autenticação
+
+```text
+login.php
+    │ formulário POST (email e senha)
+    ▼
+autenticar.php
+    │ consulta a tabela usuario por email
+    │ confere a senha com password_verify()
+    ├── credenciais válidas → cria sessão → painel.php
+    └── credenciais inválidas → login.php?erro=1
+
+painel.php → consulta tabela contato → lista mensagens
+logout.php → encerra sessão → login.php
+```
+
+Se a URL terminar em `login.php?erro=1`, o formulário foi processado, mas **o e-mail não foi encontrado ou a senha não corresponde ao hash armazenado**. Verifique o cadastro na tabela `usuario` e confirme que a senha foi gerada com `password_hash()`.
+
+## Problemas comuns
+
+| Situação | O que verificar |
+| --- | --- |
+| PHP aparece como texto ou não executa | Acesse pelo `http://localhost/...` com Apache ativo, não apenas pelo Live Server. |
+| Erro de conexão com MySQL | Revise servidor, usuário, senha, banco e porta em `conexao.php`. |
+| `mysqli_prepare()` retorna `false` | Confirme os nomes de tabelas e colunas usados no SQL. |
+| Login retorna `?erro=1` | Confirme o e-mail e o hash de senha da tabela `usuario`. |
+| Painel redireciona para login | Verifique se a sessão foi criada após a autenticação. |
+| Mensagens não aparecem | Confirme que os dados foram inseridos na tabela `contato`. |
+
+## Cuidados de segurança e limitações
+
+Este repositório é um **exemplo didático**, não uma aplicação pronta para publicação. Antes de disponibilizá-lo na internet, é necessário:
+
+- **Remover** `criar_admin.php` e `gerar_hash.php` do ambiente publicado e do histórico público quando contiverem informações sensíveis.
+- **Não manter senhas ou credenciais do banco no código versionado**; substituir credenciais expostas e usar configuração segura.
+- Utilizar HTTPS, cookies de sessão seguros, proteção contra CSRF e limitação de tentativas de login.
+- Validar e limitar os dados recebidos pelos formulários no servidor.
+- Revisar permissões do banco e o tratamento de erros.
+- Revisar a tabela HTML do painel: o cabeçalho apresenta cinco colunas, mas as linhas exibem seis valores (incluindo telefone). Ajustar o cabeçalho para incluir **Telefone**.
+- Escapar também o nome do usuário exibido no painel com `htmlspecialchars()`.
+
+O código já demonstra conceitos importantes, como **consultas preparadas**, `password_hash()`, `password_verify()`, sessões PHP e escaping de mensagens com `htmlspecialchars()`.
+
+## Conceitos trabalhados em aula
+
+Estrutura semântica HTML, Bootstrap Grid, responsividade, navbar, cards, carousel, modal, accordion, classes utilitárias, formulários com POST, integração PHP/MySQL, consultas `INSERT` e `SELECT`, prepared statements, hash de senhas, sessões, redirecionamentos, controle de acesso e versionamento com Git/GitHub.
+
+## Possíveis evoluções
+
+- Pesquisa, filtros e paginação das mensagens no painel.
+- Marcação de mensagens como lidas ou respondidas.
+- Melhorias na validação de formulários e no feedback visual.
+- Cadastro e gerenciamento de produtos com banco de dados.
+- Controle de perfis e permissões de administradores.
+- Testes automatizados e separação das configurações por ambiente.
+
+## Referências
+
+- [Documentação oficial do Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+- [Bootstrap Icons](https://icons.getbootstrap.com/)
+- [Manual do PHP](https://www.php.net/manual/pt_BR/)
+- [Documentação do MySQL](https://dev.mysql.com/doc/)
+
+## Autoria e finalidade educacional
+
+Projeto desenvolvido **em sala de aula, passo a passo, com os alunos do Senac**, sob orientação do **Professor Diego Antonio**, para fins de aprendizagem e prática de desenvolvimento web.
+
+---
+
+**VerdeViva — da interface responsiva à integração com banco de dados.**
